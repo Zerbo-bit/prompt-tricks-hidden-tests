@@ -7,6 +7,7 @@ Contents (all files are local copies; no API keys or personal data are included)
 - `analyze.py` — produces `results/main/分析.md` from `results/main/raw.jsonl` (`python3 analyze.py results/main`). Includes the record-selection rule, the corrected Newcombe interval, task-clustered permutation test and bootstrap interval.
 - `results/main/raw.jsonl` — the final raw log: 2,195 records covering 1,890 experiment units (3 models × 30 tasks × 7 variants × 3 runs). A unit can have several records (retries after truncation, re-runs after the INI spec clarification, and a few duplicates produced when two runner processes overlapped). Selection rule: for each unit the first complete record in file order; if none is complete, the last one. The rule never looks at whether the answer passed.
 - `results/main/raw.pass1.jsonl` — snapshot after the first full pass (output cap 16,000 tokens), before the 63 INI-task records were voided and re-run under the clarified spec. `results/main/raw.before-rejudge.jsonl` — snapshot before the one gpt cron answer was re-judged with longer limits.
+- `results/main/paired_by_task.csv` — per task × run × variant: baseline result vs variant result (pass / fail / truncated), the paired view behind the McNemar counts.
 - `results/main/config.json` — models, prompt template, variant texts, shuffle seed, Python version (3.9.6), start time.
 - `实验设计.md` — pre-registered questions, rules and the full run log (Chinese).
 
