@@ -1,0 +1,90 @@
+{
+  "models": [
+    "gpt-6.1-sol",
+    "claude-haiku-5-5",
+    "glm-5.3-flash"
+  ],
+  "runs": 3,
+  "variants": [
+    "baseline",
+    "role",
+    "stepbystep",
+    "stakes",
+    "testsfirst",
+    "codeonly",
+    "doublecheck"
+  ],
+  "tasks": [
+    "t01_parse_duration",
+    "t02_roman_to_int",
+    "t03_merge_intervals",
+    "t04_format_bytes",
+    "t05_days_between",
+    "t06_top_k_words",
+    "t07_is_valid_ipv4",
+    "t08_rle_decode",
+    "t09_leftmost_index",
+    "t10_normalize_path",
+    "t11_add_months",
+    "t12_parse_csv_line",
+    "t13_round_half_up",
+    "t14_wrap_text",
+    "t15_first_bracket_error",
+    "t16_dedupe_keep_order",
+    "t17_compare_versions",
+    "t18_flatten",
+    "t19_next_weekday",
+    "t20_mask_email",
+    "t21_parse_size",
+    "t22_shell_split",
+    "t23_evaluate",
+    "t24_glob_match",
+    "t25_parse_ini",
+    "t26_earliest_slot",
+    "t27_topo_sort",
+    "t28_parse_url",
+    "t29_next_cron",
+    "t30_semver_satisfies"
+  ],
+  "python": "3.9.6",
+  "started": "2026-10-18 21:12:50",
+  "prompt_template": "Write a Python function. Target: Python 3.9, standard library only.\n\n{spec}\n\nReply with exactly one Python code block containing the complete solution (imports included).\nAfter the code block, write one final line, exactly one of:\nCONFIDENCE: SURE\nCONFIDENCE: UNSURE\nWrite SURE only if you are certain the function meets every requirement above and would pass strict hidden tests that cover all of them.",
+  "variant_texts": {
+    "baseline": {
+      "label": "基线（不加任何技巧）",
+      "prefix": "",
+      "followup": null
+    },
+    "role": {
+      "label": "角色设定：资深工程师",
+      "prefix": "You are a senior Python engineer with 15 years of experience, known for writing bug-free, production-grade code.\n\n",
+      "followup": null
+    },
+    "stepbystep": {
+      "label": "先一步步思考",
+      "prefix": "Before writing any code, think step by step: list the requirements and the edge cases, then write the code.\n\n",
+      "followup": null
+    },
+    "stakes": {
+      "label": "施压：上生产、会被开除",
+      "prefix": "This code goes straight to production today. If it has a bug, I will lose my job. Please be extremely careful.\n\n",
+      "followup": null
+    },
+    "testsfirst": {
+      "label": "先写测试再写实现",
+      "prefix": "Use test-driven development: first write unit tests that cover the requirements and the edge cases, then write the implementation that passes them. Put the tests in their own code block and the final implementation in a separate, final code block.\n\n",
+      "followup": null
+    },
+    "codeonly": {
+      "label": "只要代码，不要解释",
+      "prefix": "Reply with code only. Do not explain anything: no text before or after the code block, except the CONFIDENCE line required below.\n\n",
+      "followup": null
+    },
+    "doublecheck": {
+      "label": "追问：你确定吗？再检查一遍",
+      "prefix": "",
+      "followup": "Are you sure? Double-check your code against every requirement and edge case in the task. If you find any problem, reply with the corrected complete solution in one Python code block; if you find none, say so and do not repeat the code. Then write the CONFIDENCE line again."
+    }
+  },
+  "shuffle_seed": 20261015
+}
